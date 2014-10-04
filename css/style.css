@@ -1,0 +1,36 @@
+/* Put your CSS here */
+html, body {
+	background-color: #faf4f1;
+}
+.bs-sidebar .nav > li > a.active {
+	font-weight: bold;
+	color: #333;
+	background-color: transparent;
+	border-right: 1px solid #563d7c;
+}
+.bs-example-tabs {
+	font-size: 125%;
+}
+pre.question {
+	font-size: 16px;
+	border-color: #faebcc;
+}
+pre.answer {
+	font-size: 18px;
+	border-color: #bce8f1;
+}
+.bs-sidenav {
+	border-top: 1px solid #d5ccc8;
+	background: #f9e7e4;
+	padding: 0;
+}
+.bs-sidenav p {
+	margin: 3px 0;
+}
+.bs-sidenav a {
+	border-bottom: 1px solid #d5ccc8;
+	border-left: 1px solid #d5ccc8;
+	border-right: 1px solid #d5ccc8;
+	background-color: #f4ece9;
+	color: #443331;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ember Starter Kit</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Master Template -->
+    <script type="text/x-handlebars">
+        <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    {{#linkTo 'index' classNames="navbar-brand"}}Fun with Functions{{/linkTo}}
+                </div>
+                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                    <ul class="nav navbar-nav">
+                        <li>{{#linkTo 'about'}}About{{/linkTo}}</li>
+                        <li>{{#linkTo 'questions'}}Functions{{/linkTo}}</li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="container bs-docs-container">
+            <div class="row">
+                <div class="col-md-12">
+                    {{outlet}}
+                </div>
+            </div>
+        </div>
+        <footer class="bs-footer" role="contentinfo">
+            <div class="container">
+                <p>Footer content...</p>
+            </div>
+        </footer>
+    </script>
+
+
+    <!-- Home Template -->
+    <script type="text/x-handlebars" data-template-name="index">
+        <div class="page-header">
+            <h1 id="overview">Homepage</h1>
+        </div>
+        <p class="lead">Welcome to <strong>Fun with Functions!</strong></p>
+        <img src="img/douglas-crockford-chuck-norris.jpg" width="270" height="245" alt="" />
+    </script>
+
+
+    <!-- About Template -->
+    <script type="text/x-handlebars" data-template-name="about">
+        <div class="page-header">
+            <h1 id="overview">About This Site</h1>
+        </div>
+        <p>This site was built using:</p>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <strong>
+                    <a href="http://emberjs.com/" target="_blank">
+                        Ember.js
+                        <span class="glyphicon glyphicon-new-window"></span>
+                    </a>
+                </strong>
+            </li>
+            <li class="list-group-item">
+                <strong>
+                    <a href="http://handlebarsjs.com/" target="_blank">
+                        Handlebars.js
+                        <span class="glyphicon glyphicon-new-window"></span>
+                    </a>
+                </strong>
+            </li>
+            <li class="list-group-item">
+                <strong>
+                    <a href="http://getbootstrap.com/" target="_blank">
+                        Bootstrap 3.0
+                        <span class="glyphicon glyphicon-new-window"></span>
+                    </a>
+                </strong>
+            </li>
+            <li class="list-group-item">
+                <strong>
+                    <a href="http://jquery.com/" target="_blank">
+                        jQuery
+                        <span class="glyphicon glyphicon-new-window"></span>
+                    </a>
+                </strong>
+            </li>
+        </ul>
+    </script>
+
+
+    <!-- Questions Template -->
+    <script type="text/x-handlebars" data-template-name="questions">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="bs-sidebar hidden-print affix-top">
+                    <ul class="nav bs-sidenav">
+                        {{#each model}}
+                            <li>{{#link-to 'question' this}}{{format-markdown title}}{{/link-to}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="page-header">
+                    <h1 class="overview">Fun with Functions</h1>
+                </div>
+                {{outlet}}
+            </div>
+        </div>
+    </script>
+
+    <!-- Questions Template -->
+    <script type="text/x-handlebars" data-template-name="question">
+        {{!--<div class="alert alert-info">
+            <strong>{{title}}</strong>
+        </div> --}}
+        <div class="bs-example bs-example-tabs">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" id="functions">
+                <li class="active">
+                    <a href="#question" data-toggle="tab">
+                        <span class="glyphicon glyphicon-question-sign"></span> Question
+                    </a>
+                </li>
+                <li>
+                    <a href="#answer" data-toggle="tab">
+                        <span class="glyphicon glyphicon-eye-open"></span> Answer
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="question">
+                    {{format-markdown question}}
+                </div>
+                <div class="tab-pane fade" id="answer">
+                    {{format-markdown question}}
+                    <br />
+                    <p>Solution:</p>
+                    {{format-markdown answer}}
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script src="js/libs/jquery-1.9.1.js"></script>
+    <script src="js/libs/bootstrap.min.js"></script>
+    <script src="js/libs/handlebars-1.0.0.js"></script>
+    <script src="js/libs/ember-1.0.0.js"></script>
+    <script src="js/libs/showdown.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
